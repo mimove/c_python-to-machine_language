@@ -68,3 +68,10 @@ _main:
 0000000100003f9a	jl	0x100003f6d
 0000000100003fa0	jmp	0x100003f5f
 ```
+
+La primera columna hace referencia posiciones de memoria
+
+
+*Para más información sobre como funciona este código consultar el siguiente [enlace](<https://www.youtube.com/watch?v=yOyaJXpAYZQ&list=LL&index=3&t=358s>)
+
+** Más información sobre como pasar de código de alto nivel a código máquina en los siguientes vídeos: [Video 1](<https://www.youtube.com/watch?v=QXjU9qTsYCc&list=LL&index=2>) [Serie de videos](<https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo>).
