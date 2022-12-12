@@ -47,29 +47,45 @@ Por ejemplo, el código fuente del programa en fib.c de Fibonacci con una compil
 fib:
 (__TEXT,__text) section
 _main:
+
+### INICIO DEL PROGRAM
 0000000100003f50	pushq	%rbp
 0000000100003f51	movq	%rsp, %rbp
 0000000100003f54	subq	$0x10, %rsp
 0000000100003f58	movl	$0x0, -0x4(%rbp)
+
+### DEFINICION x = 0 e y = 1
 0000000100003f5f	movl	$0x0, -0x8(%rbp)
 0000000100003f66	movl	$0x1, -0xc(%rbp)
-0000000100003f6d	movl	-0x8(%rbp), %esi
-0000000100003f70	leaq	0x35(%rip), %rdi
+
+### FUNCION PRINTF
+0000000100003f6d	movl	-0x8(%rbp), %esi # print(x)
+0000000100003f70	leaq	0x35(%rip), %rdi # print(\n)
 0000000100003f77	movb	$0x0, %al
-0000000100003f79	callq	0x100003fa6
+0000000100003f79	callq	0x100003fa6 # call print function
+
+### OPERACION ARITMÉTICA z = x + y
 0000000100003f7e	movl	-0x8(%rbp), %eax
 0000000100003f81	addl	-0xc(%rbp), %eax
 0000000100003f84	movl	%eax, -0x10(%rbp)
+
+### OPERACIÓN DE MEMORIA y = z
 0000000100003f87	movl	-0xc(%rbp), %eax
 0000000100003f8a	movl	%eax, -0x8(%rbp)
+
+### OPERACIÓN DE MEMORY x = y
 0000000100003f8d	movl	-0x10(%rbp), %eax
 0000000100003f90	movl	%eax, -0xc(%rbp)
+
+### COMPARACIÓN x < 255
 0000000100003f93	cmpl	$0xff, -0x8(%rbp)
-0000000100003f9a	jl	0x100003f6d
-0000000100003fa0	jmp	0x100003f5f
+0000000100003f9a	jl	0x100003f6d # Si x < 255 saltar a la instrucción en posición de memoria 3f6d (FUNCIÓN PRINTF)
+
+### BUCLE INFINITO
+0000000100003fa0	jmp	0x100003f5f 
 ```
 
-La primera columna hace referencia posiciones de memoria
+La primera columna hace referencia posiciones de memoria donde está almacenada la instrucción en lenguaje máquina, la segunda columna hace referencia al tipo de operación (mov, add, jmp, etc.) que tiene que ejecutar la CPU y la tercera columna hace referencia a los valores que se van a ver modificados tanto de memoria como de registro
 
 
 *Para más información sobre como funciona este código consultar el siguiente [enlace](<https://www.youtube.com/watch?v=yOyaJXpAYZQ&list=LL&index=3&t=358s>)
