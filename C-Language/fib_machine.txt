@@ -1,0 +1,23 @@
+fib:
+(__TEXT,__text) section
+_main:
+0000000100003f50	pushq	%rbp
+0000000100003f51	movq	%rsp, %rbp
+0000000100003f54	subq	$0x10, %rsp
+0000000100003f58	movl	$0x0, -0x4(%rbp)
+0000000100003f5f	movl	$0x0, -0x8(%rbp)
+0000000100003f66	movl	$0x1, -0xc(%rbp)
+0000000100003f6d	movl	-0x8(%rbp), %esi
+0000000100003f70	leaq	0x35(%rip), %rdi
+0000000100003f77	movb	$0x0, %al
+0000000100003f79	callq	0x100003fa6
+0000000100003f7e	movl	-0x8(%rbp), %eax
+0000000100003f81	addl	-0xc(%rbp), %eax
+0000000100003f84	movl	%eax, -0x10(%rbp)
+0000000100003f87	movl	-0xc(%rbp), %eax
+0000000100003f8a	movl	%eax, -0x8(%rbp)
+0000000100003f8d	movl	-0x10(%rbp), %eax
+0000000100003f90	movl	%eax, -0xc(%rbp)
+0000000100003f93	cmpl	$0xff, -0x8(%rbp)
+0000000100003f9a	jl	0x100003f6d
+0000000100003fa0	jmp	0x100003f5f
