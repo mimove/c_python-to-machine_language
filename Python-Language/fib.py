@@ -1,5 +1,5 @@
 while True:
-    x = 0
+    x:int = 0
     y = 1
     while x < 255:
         print("{}\n".format(x))
